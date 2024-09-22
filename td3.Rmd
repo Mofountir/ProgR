@@ -1,0 +1,210 @@
+---
+title: "td3"
+output: html_document
+date: "2024-09-21"
+autor: "Mohamed FOUNTIR"
+Num_etu: "22306941"
+Formation: "Licence 3 MIAGE"
+Module: "Mathématique de l'informatique"
+---
+
+##Exercice 7----------------------------------------------------------------------
+
+```{r Matrices dans R}
+A <- matrix(c(1, -1, 3, 2), nrow=2, ncol=3)
+A
+```
+
+```{r Matrices dans R}
+A <- diag(x=1, nrow=3, ncol=3)
+A
+```
+
+```{r Matrices dans R}
+A <- matrix(c(1, -1, 3, 2, -2, 4), nrow=2, ncol=3)
+A
+```
+
+```{r Matrices dans R}
+#Extraire la deuxième ligne de la matrice A 
+A[2,]
+```
+
+```{r Matrices dans R}
+#Extraire le troisième élément de la deuxième ligne de la matrice A
+A[2,3]
+```
+
+```{r Matrices dans R}
+#Modifier le troisième élément de la deuxième ligne de la matrice A
+A[2,3] <- 24
+A
+```
+
+```{r Matrices dans R}
+#Récupérer la dimensions de la matrice A
+dim(A)
+```
+
+```{r Matrices dans R}
+#Changer la dimensions de A
+dim(A) <- c(3,2)
+dim(A)
+```
+
+```{r Matrices dans R}
+#Ajouter une ligne
+B <- matrix(c(1:6), nrow=2)
+B
+cat("\n")
+nouvelle_ligne <- c(7, 8, 9)
+B <- rbind(B, nouvelle_ligne)
+B
+```
+
+```{r Matrices dans R}
+#Ajouter une colonne 
+nouvelle_colonne <- c(10, 11, 12)
+B <- cbind(B, nouvelle_colonne)
+B
+```
+
+```{r Matrices dans R}
+A <- matrix(c(1, -1, 3, 2, -2, 4), nrow=2)
+B <- matrix(c(1, 2, 3, 4, 5, 6), nrow=2)
+# Addition
+A+B
+```
+
+```{r Matrices dans R}
+# Multiplication par un scalaire
+2*A
+```
+
+```{r Matrices dans R}
+# Multiplication terme à terme
+A*B
+```
+
+```{r Matrices dans R}
+# transposition
+t(A)
+```
+
+```{r Matrices dans R}
+# Multiplication matricielle
+A %*% t(B)
+```
+
+```{r Matrices dans R}
+t(A) %*% B
+```
+
+```{r Matrices dans R}
+A <- matrix(c(1, -1, 3, 2), nrow=2)
+A
+```
+
+```{r Matrices dans R}
+#Puissance d'une matrice
+A^2
+```
+
+```{r Matrices dans R}
+#Determinant d'une matrice 
+det(A)
+```
+
+```{r Matrices dans R}
+# inverse de A
+solve(A) 
+```
+
+##Exercice 8----------------------------------------------------------------------
+
+```{r Résolution de système linéaires}
+A <- matrix(c(1, -1, 3, 2), nrow=2)
+B <- c(1, 2)
+solve(A, B)
+```
+
+```{r Résolution de système linéaires}
+C <- matrix(c(1, 1, 1, 1, -1, 1, 1, 1, -1), nrow=3)
+D <- c(1, 2, 3)
+solve(C, D)
+```
+
+```{r Résolution de système linéaires}
+#Exemple de système linéaire avec une infinité de solution
+#x+2y+3z=6
+#2x+4y+6z=12
+#3x+6y+9z=18
+
+X <- matrix(c(1, 2, 3, 2, 4, 6, 3, 6, 9), nrow = 3)
+Y <- c(6, 12, 18)
+solve(X, Y)
+```
+
+```{r Résolution de système linéaires}
+#Exemple de système linéaire sans solution
+#x+2y+3z=6
+#2x+4y+6z=12
+#x+2y+3z=10
+
+X <- matrix(c(1, 2, 1, 2, 4, 2, 3, 6, 3), nrow = 3)
+Y <- c(6, 12, 10)
+solve(X, Y)
+```
+
+#Exercice 9---------------------------------------------------------------------
+
+```{r Matrice d'une application linéaire}
+#matrice de f dans la base canonique:
+#   (2 1 0)
+#   (0 1 1)
+#   (0 2 4)
+
+A <- matrix(c(2, 1, 0,
+              0, 1, -1,
+              0, 2, 4), nrow=3, byrow=TRUE)
+f <- function(vecteur){
+  return (A %*% vecteur)
+}
+```
+
+
+```{r Matrice d'une application linéaire}
+#Calcule de f(1, 2, 3)
+f(c(1, 2, 3))
+```
+
+
+```{r Matrice d'une application linéaire}
+det_f <- det(A)
+if (det_f != 0){
+  sprintf("Le determinant de la matrice de f est %d (non null), donc f est inversible, d'où f est bijective, par ailleur elle est surjective et injective", det_f)
+}
+```
+#Exercice 10--------------------------------------------------------------------
+```{r Matrice d'une application linéaire}
+appLin <- function(A){
+  function(vecteur){
+   return (A %*% vecteur) 
+  }
+}
+```
+
+
+```{r Matrice d'une application linéaire}
+#Calcule de f(1, 1, 1)
+f(c(1, 1, 1))
+```
+
+
+
+
+
+
+
+
+
